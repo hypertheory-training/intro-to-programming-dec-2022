@@ -2,14 +2,21 @@
 
 public class BankAccount
 {
-    private decimal _balance = 5000;
+   
+    private decimal _balance = 5000; //  "Fields" "class level variables"
     public void Deposit(decimal amountToDeposit)
     {
+        
         _balance += amountToDeposit;
     }
 
     public decimal GetBalance()
     {
-        return _balance; // BS, "SLIME"  "JFCHI"
+        return _balance; 
+    }
+
+    public void Withdraw(decimal amountToWithdraw)
+    {
+        _balance -= amountToWithdraw;
     }
 }
