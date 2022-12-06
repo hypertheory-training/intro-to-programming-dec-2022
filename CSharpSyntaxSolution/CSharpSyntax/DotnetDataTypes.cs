@@ -7,13 +7,13 @@ public class DotnetDataTypes
     public void AliasesToTypes()
     {
         // Type Identifier [initializer]
-        int age = 3;
+        int age = 53;
         Int32 yourAge = 30;
 
         string myName = "Jeff";
         String yourName = "Sue";
         
-        Assert.Equal(12, age);
+        Assert.Equal(53, age);
     }
 
     [Fact]
