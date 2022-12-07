@@ -9,3 +9,4 @@ public class StubbedBonusCalculator : ICalculateBonuses
         return currentBalance == 5000M && amountOfDeposit == 92.42M ? 42 : 0; 
     }
 }
+
