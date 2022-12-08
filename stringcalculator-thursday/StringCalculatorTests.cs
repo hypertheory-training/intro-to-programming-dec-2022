@@ -6,7 +6,8 @@ public class StringCalculatorTests
     private readonly StringCalculator _calculator;
     public StringCalculatorTests()
     {
-        _calculator = new StringCalculator(new Mock<ILogger>().Object);
+        _calculator = new StringCalculator(new Mock<ILogger>().Object,
+            new Mock<IWebService>().Object);
     }
     [Fact]
     public void EmptyStringReturnsZero()
