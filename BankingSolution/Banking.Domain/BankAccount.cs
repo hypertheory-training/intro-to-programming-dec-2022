@@ -31,7 +31,8 @@ public class BankAccount
         {
             // TODO before we throw we need to do that notification thing.
             // "Write the Code You Wish You Had!"
-            _accountRepNotifier.NotifyOfAttemptedOverdraft(this, _balance, amountToWithdraw);
+         
+          _accountRepNotifier.NotifyOfAttemptedOverdraft(this, _balance, amountToWithdraw);
             throw new OverdraftException();
         }
         else
