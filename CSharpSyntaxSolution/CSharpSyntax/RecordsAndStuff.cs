@@ -41,16 +41,18 @@ public class RecordsAndStuff
 }
 
 
-public record EmployeeInformation
-{
-    public int EmployeeId { get; init; }
-    public decimal Salary { get; init; }
-   
-}
+//public record EmployeeInformation2
+//{
+//    public int EmployeeId { get; init; }
+//    public decimal Salary { get; init; }
+
+//}
+public record  EmployeeInformation(int EmployeeId, decimal Salary);
 
 
 public class HrServices
 {
+    // public readonly Decimal _thingy;
     public static EmployeeInformation GiveRaiseTo(EmployeeInformation emp, decimal raiseAmount)
     {
         // whatever business rules, etc.
