@@ -2,25 +2,37 @@
 
 namespace CSharpSyntax;
 
+//public delegate bool IsMatch(int x);
 
 public class NumberFilter
 {
     public List<int> FilterOutEvens(List<int> numbers)
     {
-        return Filter(numbers, new IsOddFilterPredicate());
+        //return Filter(numbers, delegate (int x)
+        //{
+        //    return x % 2 != 0;
+        //});
+
+        return Filter(numbers, n => n % 2 != 0);
     }
     public List<int> FilterOutOdds(List<int> numbers)
     {
-        return Filter(numbers, new IsEvenPredicate());
+
+        return Filter(numbers, n => n % 2 == 0);
+        //return Filter(numbers, delegate (int x)
+        //{
+          
+        //    return x % 2 == 0;
+        //});
     }
 
-    private List<int> Filter(List<int> numbers, FilterPredicate pred)
+    private List<int> Filter(List<int> numbers, Predicate<int> isMatch)
     {
         var results = new List<int>();
         foreach (var number in numbers)
         {
           
-            if (pred.IsMatch(number))
+            if (isMatch(number))
             {
                 results.Add(number);
             }
@@ -29,29 +41,15 @@ public class NumberFilter
     }
 
 
-    private bool IsOdd(int number)
-    {
-        return number % 2 != 0;
-    }
+    //private bool IsOdd(int number)
+    //{
+    //    return number % 2 != 0;
+    //}
+
+    //private bool IsEven(int number)
+    //{
+    //    return number % 2 == 0;
+    //}
 }
 
-public interface FilterPredicate
-{
-    bool IsMatch(int x);
-}
 
-public class IsOddFilterPredicate : FilterPredicate
-{
-    public bool IsMatch(int x)
-    {
-        return x %2 != 0;
-    }
-}
-
-public class IsEvenPredicate : FilterPredicate
-{
-    public bool IsMatch(int x)
-    {
-        return x % 2 == 0;
-    }
-}
