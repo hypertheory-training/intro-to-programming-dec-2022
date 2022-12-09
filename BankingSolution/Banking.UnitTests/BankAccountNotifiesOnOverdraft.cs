@@ -40,6 +40,7 @@ public class BankAccountNotifiesOnOverdraft
 
 
         // Verify the notifier was called
+        // Homoiconcity
         mockedNotifier.Verify(m => m.NotifyOfAttemptedOverdraft(account, openingBalance, amountToWithdraw), Times.Never());
 
 
