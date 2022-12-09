@@ -1,4 +1,6 @@
 ﻿
+using JunkDrawer;
+
 namespace CSharpSyntax;
 
 public class BuiltInDelegateTypes
@@ -31,6 +33,27 @@ public class BuiltInDelegateTypes
         var answer = "1,2,3,4,5".Split(',').Select(int.Parse).Sum();
 
     }
+    [Fact]
+
+    public void ExtensionMethods()
+    {
+
+        Assert.True(2.IsEven());
+
+        Assert.False(3.IsEven());
+
+        var myAge = 53;
+
+        Assert.True(myAge.IsOdd());
+
+
+
+        var monday = 3.DaysFromToday();
+
+        Assert.Equal(2, "Tacos".NumberOfVowels());
+
+
+    }
 }
 
 
@@ -41,10 +64,3 @@ public class Employee {
     public void GiveRaise(decimal amount, string whoApproved, DateTime whenApplied) { }
  }
 
-
-public class NumberUtilities
-{
-    public static bool IsEven(int n) => n % 2 == 0;
-
-    public static bool IsOdd(int n) => n % 2 != 0;
-}
