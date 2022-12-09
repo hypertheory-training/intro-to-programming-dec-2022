@@ -1,6 +1,7 @@
 ﻿using BowlingScores;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Security.Principal;
 
 Console.WriteLine("Bowling Score Tool!");
 
@@ -16,14 +17,27 @@ while(true)
 
     Console.Write("Enter the name of the bowler: ");
     var name = Console.ReadLine();
+
     if(name == "")
     {
         break; // Jump out of the loop.
     }
     Console.Write($"What was {name}'s Score? :");
-    var score = int.Parse(Console.ReadLine()); // we'll worry about this later.
 
-    game.AddAPlayerScore(name, score);
+    // if what they entered is an integer, cool, if not, show an error.
+    //int.TryParse()
+    //var score = int.Parse(Console.ReadLine()); // we'll worry about this later.
+
+    if(int.TryParse(Console.ReadLine(), out var score))
+    {
+        game.AddAPlayerScore(name!, score);
+
+    } else
+    {
+        Console.WriteLine("Enter a number for a score, you bone head!");
+        
+    }
+    
 }
 
 
@@ -37,3 +51,7 @@ foreach(var loser in game.LowScores())
 {
     Console.WriteLine($"Loser: {loser.player} with a score of {loser.score}");
 }
+
+
+
+
